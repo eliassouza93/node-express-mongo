@@ -3,22 +3,23 @@ import RequisocaoIncorreta from '../erros/RequisicaoIncorreta.js'
 class LivroController {
   static listarLivros = async (req, res, next) => {
     try {
-     // const { limite = 5, pagina = 1 } = req.body
+      // const { limite = 5, pagina = 1,campoOrdenacao = '_id,ordem = -1 } = req.body
 
-    //  limite = parseInt(limite)
-    //  pagina = parseInt(pagina)
+      //  limite = parseInt(limite)
+      //  pagina = parseInt(pagina)
 
-    //  if (limite > 0 && pagina > 0) {
-        const livros = await Livro.find()
+      //  if (limite > 0 && pagina > 0) {
+      const livros = await Livro.find()
+        // .sort({ [campoOrdenacao]: ordem }) // ordenar por titulo
         //  .skip((pagina - 1) * limite)
-       //   .limit(limite)
-          .populate('autor')
-          .exec();
-        res.status(200).json(livros);
+        //   .limit(limite)
+        .populate('autor')
+        .exec();
+      res.status(200).json(livros);
 
-    //  } else {
-     //   next(new RequisocaoIncorreta)
-    // }
+      //  } else {
+      //   next(new RequisocaoIncorreta)
+      // }
     } catch (err) {
       next(err)
     }
