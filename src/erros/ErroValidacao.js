@@ -7,7 +7,7 @@ class ErroValidacao extends RequisicaoIncorreta {
             .map(erro => erro.message)
             .join('; ')
 
-        super('os seguintes erros foram encontrador' + mensagensErro)
+        super('os seguintes erros foram encontrados ' + mensagensErro)
     }
 }
 
