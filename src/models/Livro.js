@@ -4,7 +4,12 @@ const livroSchema = new mongoose.Schema(
   {
     id: { type: String },
     titulo: { type: String, required: [true, ' titulo é obrigatório'] },
-    autor: { type: String, required: [true, ' autor é obrigatório'] },
+    autor: {
+       type: mongoose.Schema.Types.ObjectId,
+       ref:'autores',
+        required: [true, ' autor é obrigatório']
+      
+      },
     editora: {
       type: String,
       required: [true, ' editora é obrigatório'],
